@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#070D18] text-slate-100 font-sans antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(30, 64, 175, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.6) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphic panels */
+.glass-panel {
+  background: rgba(15, 30, 54, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 53, 91, 0.6);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(17, 33, 58, 0.8) 0%, rgba(11, 23, 42, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 53, 91, 0.7);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+}
+
+.glass-card-active {
+  border-color: rgba(6, 182, 212, 0.8);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+}
+
+/* Status Glows */
+.glow-available {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+.glow-limited {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+.glow-full {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.25);
+}
+
+/* Custom Sleek Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 25, 44, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 64, 175, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
+
+/* Slot grid animations */
+.slot-enter-pulse {
+  animation: slotPulseGreen 1.5s ease-out;
+}
+
+.slot-exit-pulse {
+  animation: slotPulseRed 1.5s ease-out;
+}
+
+@keyframes slotPulseGreen {
+  0% { transform: scale(1.15); box-shadow: 0 0 15px rgba(16, 185, 129, 0.9); }
+  100% { transform: scale(1); box-shadow: none; }
+}
+
+@keyframes slotPulseRed {
+  0% { transform: scale(1.15); box-shadow: 0 0 15px rgba(239, 68, 68, 0.9); }
+  100% { transform: scale(1); box-shadow: none; }
+}
